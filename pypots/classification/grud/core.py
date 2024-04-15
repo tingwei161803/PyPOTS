@@ -81,4 +81,4 @@ class _GRUD(nn.Module):
             )
             results["loss"] = classification_loss
 
-        return results
+        return results, hidden_state
