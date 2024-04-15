@@ -68,7 +68,8 @@ class _GRUD(nn.Module):
         _, hidden_state = self.model(
             X, missing_mask, deltas, empirical_mean, X_filledLOCF
         )
-
+        print("Hidden State")
+        print(hidden_state)
         logits = self.classifier(hidden_state)
         classification_pred = torch.softmax(logits, dim=1)
         results = {"classification_pred": classification_pred}
