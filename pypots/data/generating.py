@@ -354,6 +354,9 @@ def gene_physionet2012(artificially_missing_rate: float = 0.1):
     train_set_ids.sort()
     val_set_ids.sort()
     test_set_ids.sort()
+    print(f'train{len(train_set_ids)}')
+    print(f'train{len(val_set_ids)}')
+    print(f'train{len(test_set_ids)}')
     train_set = X[X["RecordID"].isin(train_set_ids)].sort_values(["RecordID", "Time"])
     val_set = X[X["RecordID"].isin(val_set_ids)].sort_values(["RecordID", "Time"])
     test_set = X[X["RecordID"].isin(test_set_ids)].sort_values(["RecordID", "Time"])
@@ -425,4 +428,4 @@ def gene_physionet2012(artificially_missing_rate: float = 0.1):
         data["test_X_ori"] = np.nan_to_num(test_X_ori)
         data["test_X_indicating_mask"] = ~np.isnan(test_X_ori) ^ ~np.isnan(test_X)
 
-    return data
+    return data, train_set_ids, val_set_ids, test_set_ids
