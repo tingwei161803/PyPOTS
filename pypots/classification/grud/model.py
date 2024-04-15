@@ -17,8 +17,8 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from .core import _GRUD
 from .data import DatasetForGRUD
+from .modules import _GRUD
 from ..base import BaseNNClassifier
 from ...optim.adam import Adam
 from ...optim.base import Optimizer
