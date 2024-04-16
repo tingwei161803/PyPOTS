@@ -90,7 +90,7 @@ class _GRUD(nn.Module):
             hidden_state = self.rnn_cell(data_input, hidden_state)
         print("Hidden State")
         print(hidden_state)
-        print(type(hidden_state)
+        print(type(hidden_state))
 
         logits = self.classifier(hidden_state)
         classification_pred = torch.softmax(logits, dim=1)
