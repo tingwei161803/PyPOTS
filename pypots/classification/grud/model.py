@@ -227,7 +227,7 @@ class GRUD(BaseNNClassifier):
         with torch.no_grad():
             for idx, data in enumerate(test_loader):
                 inputs = self._assemble_input_for_testing(data)
-                results, hidden_state = self.model.forward(inputs, training=False)
+                results, hidden_state = self.model.forward(inputs, training=False, output_hidden = True)
                 prediction = results["classification_pred"]
                 classification_collector.append(prediction)
                 hidden_state_collector.append(hidden_state)
