@@ -352,9 +352,12 @@ def gene_physionet2012(train_ids, valid_ids, test_ids, artificially_missing_rate
     # train_set_ids, test_set_ids = train_test_split(all_recordID, test_size=0.2)
     # train_set_ids, val_set_ids = train_test_split(train_set_ids, test_size=0.2)
     # Load selected train, valid, test set
-    train_set_ids = train_ids
-    val_set_ids = valid_ids
-    test_set_ids = test_ids
+    # train_set_ids = train_ids
+    # val_set_ids = valid_ids
+    # test_set_ids = test_ids
+    train_set_ids = [x for x in train_ids if x in all_recordID]
+    val_set_ids = [x for x in valid_ids if x in all_recordID]
+    test_set_ids = [x for x in test_ids if x in all_recordID]
     train_set_ids.sort()
     val_set_ids.sort()
     test_set_ids.sort()
