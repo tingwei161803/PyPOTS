@@ -18,7 +18,7 @@ import torch
 from torch.utils.data import DataLoader
 
 from .data import DatasetForGRUD
-from .modules import _GRUD
+from .core import _GRUD
 from ..base import BaseNNClassifier
 from ...optim.adam import Adam
 from ...optim.base import Optimizer
