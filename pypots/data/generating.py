@@ -322,7 +322,7 @@ def gene_random_walk(
     return data
 
 
-def gene_physionet2012(artificially_missing_rate: float = 0.1, train_ids, valid_ids, test_ids):
+def gene_physionet2012(train_ids, valid_ids, test_ids, artificially_missing_rate: float = 0.1):
     """Generate a fully-prepared PhysioNet-2012 dataset for model testing.
 
     Parameters
