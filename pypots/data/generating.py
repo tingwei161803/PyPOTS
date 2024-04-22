@@ -322,7 +322,7 @@ def gene_random_walk(
     return data
 
 
-def gene_physionet2012(artificially_missing_rate: float = 0.1):
+def gene_physionet2012(artificially_missing_rate: float = 0.1, train_ids, valid_ids, test_ids):
     """Generate a fully-prepared PhysioNet-2012 dataset for model testing.
 
     Parameters
@@ -349,8 +349,12 @@ def gene_physionet2012(artificially_missing_rate: float = 0.1):
     ICUType = dataset["ICUType"]
 
     all_recordID = X["RecordID"].unique()
-    train_set_ids, test_set_ids = train_test_split(all_recordID, test_size=0.2)
-    train_set_ids, val_set_ids = train_test_split(train_set_ids, test_size=0.2)
+    # train_set_ids, test_set_ids = train_test_split(all_recordID, test_size=0.2)
+    # train_set_ids, val_set_ids = train_test_split(train_set_ids, test_size=0.2)
+    # Load selected train, valid, test set
+    train_set_ids = train_ids
+    val_set_ids = valid_ids
+    test_set_ids = test_ids
     train_set_ids.sort()
     val_set_ids.sort()
     test_set_ids.sort()
