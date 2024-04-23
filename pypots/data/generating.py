@@ -355,12 +355,24 @@ def gene_physionet2012(train_ids, valid_ids, test_ids, artificially_missing_rate
     # train_set_ids = train_ids
     # val_set_ids = valid_ids
     # test_set_ids = test_ids
-    # train_set_ids = [x for x in train_ids if x in all_recordID]
-    # val_set_ids = [x for x in valid_ids if x in all_recordID]
-    # test_set_ids = [x for x in test_ids if x in all_recordID]
-    train_set_ids = [x if x in all_recordID else print(f'ID {x} Not Valid') for x in train_ids]
-    val_set_ids = [x if x in all_recordID else print(f'ID {x} Not Valid') for x in valid_ids]
-    test_set_ids = [x if x in all_recordID else print(f'ID {x} Not Valid') for x in test_ids]
+    train_set_ids = [x for x in train_ids if x in all_recordID]
+    val_set_ids = [x for x in valid_ids if x in all_recordID]
+    test_set_ids = [x for x in test_ids if x in all_recordID]
+    # train_set_ids = [x if x in all_recordID else print(f'ID {x} Not Valid') for x in train_ids]
+    # val_set_ids = [x if x in all_recordID else print(f'ID {x} Not Valid') for x in valid_ids]
+    # test_set_ids = [x if x in all_recordID else print(f'ID {x} Not Valid') for x in test_ids]
+    invalid_train_ids = [x for x in train_ids if x not in all_recordID]
+    invalid_val_ids = [x for x in valid_ids if x not in all_recordID]
+    invalid_test_ids = [x for x in test_ids if x not in all_recordID]
+    
+    for x in invalid_train_ids:
+        print(f'ID {x} Not Valid in train set')
+    
+    for x in invalid_val_ids:
+        print(f'ID {x} Not Valid in valid set')
+    
+    for x in invalid_test_ids:
+        print(f'ID {x} Not Valid in test set')
     train_set_ids.sort()
     val_set_ids.sort()
     test_set_ids.sort()
